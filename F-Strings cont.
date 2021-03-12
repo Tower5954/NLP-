@@ -1,0 +1,263 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "extraordinary-poland",
+   "metadata": {},
+   "source": [
+    "# Minimum Widths, Alignment and Padding\n",
+    "You can pass arguments inside a nested set of curly braces to set a minimum width for the field, the alignment and even padding characters."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "tamil-branch",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "library = [('Author', 'Topic', 'Pages'), ('Twain', 'Rafting', 601), ('Feynman', 'Physics', 95), ('Hamilton', 'Mythology', 144)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "economic-fraction",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('Author', 'Topic', 'Pages'),\n",
+       " ('Twain', 'Rafting', 601),\n",
+       " ('Feynman', 'Physics', 95),\n",
+       " ('Hamilton', 'Mythology', 144)]"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "library\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "indirect-oregon",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('Author', 'Topic', 'Pages')\n",
+      "('Twain', 'Rafting', 601)\n",
+      "('Feynman', 'Physics', 95)\n",
+      "('Hamilton', 'Mythology', 144)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for book in library:\n",
+    "    print(book)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "peripheral-packaging",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Author is: Author\n",
+      "Author is: Twain\n",
+      "Author is: Feynman\n",
+      "Author is: Hamilton\n"
+     ]
+    }
+   ],
+   "source": [
+    "for book in library:\n",
+    "    print(f\"Author is: {book[0]}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "unnecessary-anime",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Author is Author\n",
+      "Author is Twain\n",
+      "Author is Feynman\n",
+      "Author is Hamilton\n"
+     ]
+    }
+   ],
+   "source": [
+    "for author, topic, pages in library:\n",
+    "    print(f\"Author is {author}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "referenced-pressure",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The book is Topic\n",
+      "The book is Rafting\n",
+      "The book is Physics\n",
+      "The book is Mythology\n"
+     ]
+    }
+   ],
+   "source": [
+    "for author, topic, pages in library:\n",
+    "    print(f\"The book is {topic}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "sustainable-wrapping",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Author     Topic                Pages\n",
+      "Twain      Rafting              **601\n",
+      "Feynman    Physics              ***95\n",
+      "Hamilton   Mythology            **144\n"
+     ]
+    }
+   ],
+   "source": [
+    "for author, topic, pages in library:\n",
+    "    print(f\"{author:{10}} {topic:{20}} {pages:*>{5}}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "subsequent-engineering",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from datetime import datetime"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "noted-breakfast",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "today = datetime(day=11, month=3, year=2021)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "complicated-kentucky",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2021-04-11 00:00:00\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f\"{today}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "guided-ottawa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "datetime.datetime(2021, 4, 11, 0, 0)"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "today"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "institutional-harrison",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " Thu 11 Mar 2021 00 00\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f\"{today: %a %d %b %Y %H %M}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "naughty-maria",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
